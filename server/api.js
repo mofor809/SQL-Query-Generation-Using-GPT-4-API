@@ -1,20 +1,25 @@
-import { Configuration, OpenAIApi } from "openai"
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+
 dotenv.config();
 
-const openaiApiKey = process.env.OPEN_API_KEY
+import openaiPkg from "openai";
 
-if (!openApiKey) {
-  console.error('OPEN_API_KEY is not set')
+const { Configuration, OpenAIApi } = openaiPkg;
+
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
+if (!openaiApiKey) {
+  console.error('OPENAI_API_KEY is not set');
   // closes backend if key is not set
-  process.exit(1)
+  process.exit(1);
 }
 
-const configuration = new Configuration({
-  apiKey: openaiApiKey
-})
-const openai = new OpenAIApi(configuration)
+const openai = new openaiPkg({
+  apiKey: openaiApiKey,
+});
 
-export default openai
+
+
+export default openai;
 
 //this configures api in a file. requests are made in another file
