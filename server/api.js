@@ -6,7 +6,7 @@ import openaiPkg from "openai";
 
 const { Configuration, OpenAIApi } = openaiPkg;
 
-const openaiApiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+const openaiApiKey = process.env.OPENAI_API_KEY;
 
 if (!openaiApiKey) {
   console.error('OPENAI_API_KEY is not set');
